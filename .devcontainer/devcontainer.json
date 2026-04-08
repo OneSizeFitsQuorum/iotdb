@@ -1,16 +1,6 @@
 {
   "name": "CentOS 8.5",
-  "image": "centos:8.5.2111",
-  "features": {
-    // 如果你需要一些通用的工具（git, zsh等），可以保留这个
-    "ghcr.io/devcontainers/features/common-utils:1": {
-      "configureZshAsDefaultShell": true
-    }
-  },
-  "onCreateCommand": "sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-* && sed -i 's|#baseurl=http://centos.org|baseurl=http://centos.org|g' /etc/yum.repos.d/CentOS-* && yum makecache",
-  "customizations": {
-    "vscode": {
-      "extensions": ["ms-vscode.cpptools"] 
-    }
-  }
+  // 使用 quay.io 上的镜像，这个地址目前是有效的
+  "image": "quay.io/centos/centos:stream8", 
+  "onCreateCommand": "sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-* && sed -i 's|#baseurl=http://centos.org|baseurl=http://centos.org|g' /etc/yum.repos.d/CentOS-* && yum makecache"
 }
