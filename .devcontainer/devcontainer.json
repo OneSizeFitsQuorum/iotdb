@@ -1,6 +1,5 @@
 {
-  "name": "CentOS 8.5",
-  // 使用 quay.io 上的镜像，这个地址目前是有效的
-  "image": "quay.io/centos/centos:stream8", 
-  "onCreateCommand": "sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-* && sed -i 's|#baseurl=http://centos.org|baseurl=http://centos.org|g' /etc/yum.repos.d/CentOS-* && yum makecache"
+  "name": "Rocky Linux 8 (CentOS 8 Compatible)",
+  "image": "rockylinux:8",
+  "onCreateCommand": "dnf install -y dnf-utils epel-release"
 }
